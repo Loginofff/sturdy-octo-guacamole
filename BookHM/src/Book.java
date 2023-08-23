@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Book implements Comparable<Book> {
+public class Book {
 
   private final String nameOfBook;
   private final String author;
@@ -12,10 +12,6 @@ public class Book implements Comparable<Book> {
 
   public String getAuthor() {
     return author;
-  }
-
-  public int getQuantity() {
-    return quantity;
   }
 
   public Book(String nameOfBook, String author, int quantity) {
@@ -31,21 +27,6 @@ public class Book implements Comparable<Book> {
         ", author='" + author + '\'' +
         ", quantity=" + quantity +
         '}';
-  }
-
-  @Override
-  public int compareTo(Book o) {
-    int authorComparison = this.author.compareTo(o.author);
-    if (authorComparison != 0) {
-      return authorComparison;
-    }
-
-    int nameComparison = this.nameOfBook.compareTo(o.nameOfBook);
-    if (nameComparison != 0) {
-      return nameComparison;
-    }
-
-    return Integer.compare(this.quantity, o.quantity);
   }
 
   @Override
@@ -65,5 +46,4 @@ public class Book implements Comparable<Book> {
   public int hashCode() {
     return Objects.hash(nameOfBook, author, quantity);
   }
-
 }
